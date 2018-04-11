@@ -1,0 +1,15 @@
+en:
+  spree:
+    new_instagram_item: New instagram product
+    editing_instagram_item: Editing instagram product
+    back_to_instagram_items_list: Back to instagram product list
+    go_to_get_instagram_posts: Go to get instagram posts
+    listing_instagram_posts: Listing instagram posts
+    listing_instagram_instagram_items: Listing instagram products
+    get_instagram_post: Get instagram posts
+    make_instagram_posts_call: Make instagram posts call.
+    create_new_instagram_product: Add product
+    edit_instagram_product: Edit product
+    outstanding: Outstanding
+    published: Published
+    instagram_item_image_url: Image from instagram
