@@ -1,0 +1,46 @@
+#s2id_instagram_item_product_ids,
+#instagram_item_image_url,
+#instagram_item_link{
+	width:100%
+}
+
+li.instagram_posts{
+    display: inline-block;
+    width: 24%;
+    div.product-image{
+	    align-items: center;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    position:relative;
+	    text-align: center;
+	    img{
+	    	width:100%
+	    }
+	    form,
+	    a.button{
+	    	display:none;
+	    	top: 45%;
+	    	z-index:3;
+    		position: absolute;
+	    }
+	    span.shadow{
+		    height: 100%;
+		    position: absolute;
+		    width: 100%;
+		    z-index: 2;
+	    }
+	}
+}
+
+li.instagram_posts:hover{
+    div.product-image {
+	    form,
+	    a.button{
+	    	display:inherit;
+	    }
+		span.shadow{
+		   	background-color: rgba(3,3,3,0.5);
+		}
+	}
+}
