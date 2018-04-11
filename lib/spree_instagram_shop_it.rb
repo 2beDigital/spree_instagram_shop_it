@@ -1,5 +1,4 @@
+require 'spree_core'
 require "spree_instagram_shop_it/version"
-
-module SpreeInstagramShopIt
-  # Your code goes here...
-end
+require 'spree_instagram_shop_it/engine'
+require 'spree_instagram_shop_it/configuration'

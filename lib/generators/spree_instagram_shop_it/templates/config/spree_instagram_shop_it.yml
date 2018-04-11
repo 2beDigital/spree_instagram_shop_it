@@ -1,0 +1,18 @@
+common: &test_environment_settings
+  access_token: 'YOUR ACCESS TOKEN'
+  client_id: 'YOUR CLIENT ID'
+  client_secret: 'YOUR CLIENT SECRET'
+
+production:
+  access_token: 'YOUR ACCESS TOKEN'
+  client_id: 'YOUR CLIENT ID'
+  client_secret: 'YOUR CLIENT SECRET'
+
+development:
+  <<: *test_environment_settings
+
+staging:
+  <<: *test_environment_settings
+
+test:
+<<: *test_environment_settings
