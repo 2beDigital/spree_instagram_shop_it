@@ -1,0 +1,58 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<% content_for :page_title do %>
+  <%= Spree.t(:listing_instagram_instagram_items) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to Spree.t(:go_to_get_instagram_posts), spree.admin_instagram_posts_path, :icon => 'icon-arrow-left' %>
+  </li>
+<% end %>
+
+
+<%= paginate @collection %>
+
+<% if @collection.any? %>  
+  <table class="index" id="listing_instagram_items">
+    <colgroup>
+       <col style="width: 20%;">
+       <col style="width: 15%;">
+       <col style="width: 15%;">
+       <col style="width: 35%;">
+       <col style="width: 15%;">
+    </colgroup>
+    <thead>
+      <tr data-hook="admin_instagram_items_index_headers">
+        <th><%= Spree.t(:image) %></th>
+        <th><%= Spree.t(:published) %></th>
+        <th><%= Spree.t(:outstanding) %></th>
+        <th><%= Spree.t(:link) %></th>
+        <th data-hook="admin_instagram_items_index_header_actions" class="actions">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @collection.each do |instagram_item| %>
+          <tr id="<%= spree_dom_id instagram_item %>" data-hook="admin_instagram_items_index_rows" class="<%= cycle('odd', 'even') %>">
+            <td class="align-center">
+			        <img src="<%= instagram_item.image_url %>" alt="instagram_item_<%= instagram_item.id %>" style='width:100%'/>
+            </td>
+            <td style='text-align:center'><%= raw(instagram_item.published ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>') %></td>
+            <td style='text-align:center'><%= raw(instagram_item.outstanding ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>') %></td>
+            <td style='text-align:center'><%= link_to instagram_item.link, instagram_item.link %> </td>
+            <td class="actions" data-hook="admin_instagram_items_index_row_actions">
+              <%= link_to_edit instagram_item, :no_text => true, :class => 'edit' if can?(:edit, instagram_item) %>
+              &nbsp;
+              <%= link_to_delete instagram_item, :no_text => true if can?(:delete, instagram_item) %>
+            </td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alpha twelve columns no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/instagram_item')) %>,
+    <%= link_to Spree.t(:add_one), spree.new_admin_instagram_item_path %>!
+  </div>
+<% end %>
+
+<%= paginate @collection %>

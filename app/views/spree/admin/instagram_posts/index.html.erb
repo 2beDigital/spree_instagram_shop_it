@@ -1,0 +1,21 @@
+<%= render partial: 'spree/admin/shared/configuration_menu' %>
+<% content_for :page_title do %>
+  <%= Spree.t(:listing_instagram_posts) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li id="get_instagram_post">
+    <%= button_link_to Spree.t(:get_instagram_post), admin_get_instagram_posts_path, { :remote => true, :icon => 'plus', :id => 'admin_instagram_get_posts' } %>
+  </li>
+<% end %>
+  
+<ul id='instagram_post_images'>
+	<% if @collection.present? %>
+		<%= render partial: 'spree/admin/shared/instagram_posts' %>
+	<% else %>
+		<div class="alpha twelve columns no-objects-found">
+	    <%= Spree.t(:make_instagram_posts_call) %>,
+	    <%= link_to Spree.t(:get_instagram_post), spree.admin_get_instagram_posts_path, :remote => true, :id => 'admin_instagram_get_posts_link'  %>
+	  </div>
+	<% end %>
+</ul>
