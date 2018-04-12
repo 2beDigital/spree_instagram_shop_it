@@ -1,0 +1,15 @@
+<% content_for :head do %>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.4/jquery.fancybox.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.4/jquery.fancybox.min.js"></script>
+<% end %>
+
+<div data-hook="homepage_instagram_items" class='row'>
+  <% if @collection.empty? %>
+    <h1 class="search-results-title"><%= Spree.t(:no_instagram_items_found) %></h1>
+  <% else %>
+    <h1 class="text-center"><%= Spree.t(:instagram_shop_it) %></h1>
+    <%= render :partial => 'spree/shared/instagram_items', :locals => { :instagram_items => @instagram_items } %>
+  <% end %>
+</div>
+

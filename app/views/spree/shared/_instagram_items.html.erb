@@ -1,0 +1,35 @@
+<%= paginate @collection %>
+
+<ul id='instagram_item_images' class='container list'>
+	<% @collection.each do |instagram_item| %>
+		<li class='col-md-3 instagram_items' id="instagram_item_<%= instagram_item.id %>" >
+			<a class="instagram-items-links" data-fancybox="gallery" href="#instagram_product_<%= instagram_item.id %>">
+			    <div class="product-image">		    
+			      <img src="<%= instagram_item.image_url %>" alt="image_<%= instagram_item.id %>"/>
+			      <span class="shadow"><h3><%= Spree.t(:shop_it) %></h3></span>
+			    </div>
+			</a>
+			<div id="instagram_product_<%= instagram_item.id %>" class='fancy_instagram_products'>	
+				<img src="<%= instagram_item.image_url %>" alt="image_<%= instagram_item.id %>" class='item_image' />
+				<ul class='instagram_products' >
+					<% instagram_item.products.each_with_index do |product, index| %>	    
+		      	<li class="instan_product">
+		      		<div>
+		      			<%= link_to small_image(product, :itemprop => "image"), spree.product_path(product), :itemprop => 'url' %>
+		      		</div>
+							<div>
+								<h6><%= product.name %></h6>
+								<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+									<span class="price selling" itemprop="price"><%= display_price(product) %></span>
+								</span>
+							</div>
+							<div><%= link_to Spree.t(:add_to_cart), spree.product_path(product), :class => 'btn btn-primary' %></div>
+						</li>
+					<% end %>
+				</ul>
+		  	</div>
+		</li>	
+	<% end %>
+</ul>
+
+<%= paginate @collection%>

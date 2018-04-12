@@ -8,4 +8,5 @@ Spree::Core::Engine.routes.draw do
   	resources :instagram_posts
   	get  :get_instagram_posts, to: 'instagram_posts#get_instagram_posts'
   end
+  get :instagram_items, to: 'instagram_items#index'
 end

@@ -1,8 +1,6 @@
 # SpreeInstagramShopIt
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/spree_instagram_shop_it`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem allows you to connect your spree store with your instagram posts, obtaining your posts and being able to link products with the images of your instagram posts.
 
 ## Installation
 
@@ -14,7 +12,8 @@ gem 'spree_instagram_shop_it'
 
 And then execute:
 
-    $ bundle
+    $ bundle install
+    $ rails g spree_instagram_shop_it:install
 
 Or install it yourself as:
 
@@ -22,7 +21,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Configure your access data for instagram api:
+
+```
+	access_token: 'YOUR ACCESS TOKEN'
+  	client_id: 'YOUR CLIENT ID'
+  	client_secret: 'YOUR CLIENT SECRET'
+
+```
+
+As for now Instagram access token doesn't change or expire, so you can use this simple-to-use service
+to generate it http://services.chrisriversdesign.com/instagram-token/
+I the nearest future the OAuth authorization for access token fetching will be implemented.
+
+NOTE: You need to create an instagram app in your account.
 
 ## Development
 
@@ -32,5 +44,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/spree_instagram_shop_it.
+Bug reports and pull requests are welcome on GitHub at https://github.com/2bedigital/spree_instagram_shop_it.
 

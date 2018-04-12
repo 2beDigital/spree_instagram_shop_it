@@ -1,0 +1,72 @@
+ul#instagram_item_images{
+	list-style:none;
+	li.instagram_items{
+		display:inline-block;
+		padding:5px;
+		 div.product-image{
+		    align-items: center;
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    position:relative;
+		    text-align: center;
+		    img{
+		    	width:100%
+		    }
+		    span.shadow{
+			    height: 100%;
+			    position: absolute;
+			    width: 100%;
+			    z-index: 2;
+			    justify-content: center;
+			    display: flex;
+			    align-items: center;
+			    color: white;
+			    h3{
+			    	display:none;
+			    	text-transform: uppercase;
+				    border: 2px solid white;
+				    padding: 5px 10px;
+			    }
+			}
+		    
+		}
+		&:hover{
+		    div.product-image {
+				span.shadow{
+				   	background-color: rgba(3,3,3,0.5);
+				   	h3{
+				    	display:inherit;
+				    }
+				}
+			}
+		}
+	}
+}
+
+div.fancy_instagram_products{
+	display:none;
+	img.item_image{
+		max-width:50%;
+		display: block;
+		float:left;
+	}
+	ul.instagram_products{
+		list-style: none;
+	    display: block;
+	    float: right;
+	    width: 50%;
+	    padding-top: 30px;
+		li.instan_product{
+			display: inline-block;
+		    text-align: center;
+		    width: 49%;
+		    margin-bottom: 20px;
+		    margin-top: 20px;
+		    a.btn.btn-primary{
+		    	width:100%;
+		    }
+		}
+
+	}
+}
