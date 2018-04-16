@@ -23,6 +23,6 @@ en:
   activerecord:
     models:
       spree/instagram_item:
-        other: Instagram items not found.
-        one: Instagram item not found.
-        zero: Instagram items not found.
+        other: Instagram items
+        one: Instagram item
+        zero: Instagram items
