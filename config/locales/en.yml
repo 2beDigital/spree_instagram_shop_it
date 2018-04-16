@@ -16,3 +16,13 @@ en:
     instagram_shop_it: Instagram Shop It
     shop_it: Shop It
     no_instagram_items_found: No instagram products found
+    instagram_item_description: Instagram description
+    instagram_item_likes: Likes in instagram
+    instagram_item_username: Name of instagram user
+    show_in_instagram: Show in instagram
+  activerecord:
+    models:
+      spree/instagram_item:
+        other: Instagram items not found.
+        one: Instagram item not found.
+        zero: Instagram items not found.

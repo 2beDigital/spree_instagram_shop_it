@@ -2,7 +2,6 @@ class SpreeInstagramItems < ActiveRecord::Migration
   	def change
   	 	create_table :spree_instagram_items do |t|
 			t.string  :image_url
-			t.string  :link
 			t.boolean :published,    default: false
 			t.boolean :outstanding,  default: false
 			t.belongs_to :instagram_post, index: true

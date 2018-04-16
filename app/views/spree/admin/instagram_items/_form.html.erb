@@ -1,42 +1,25 @@
 <div id="instagram_item_properties">
-  <div class="left six columns alpha" >
-    <div class="instagram-item-image">
-        <img src="<%= @instagram_item.image_url %>" alt='' style='width:100%'/>
-    </div>
+  <div class="instagram-item-image">
+      <img src="<%= @instagram_item.image_url %>" alt='instagram_item_image'/>
   </div>
-  <div class="right ten columns omega">
-    <div data-hook="admin_instagram_item_image_url_form">
-      <%= f.field_container :image_url do %>
-        <%= f.label :image_url, raw(Spree.t(:instagram_item_image_url) + content_tag(:span, ' *', :class => "required")) %><br/>
-        <%= f.text_field :image_url, :value => @instagram_item.image_url , :required => true %>
-        <%= f.error_message_on :image_url %>
+  <div class='field' data-hook="admin_instagram_item_form_products">
+      <%= f.field_container :products do %>
+        <%= f.label :product_ids, Spree.t(:products) %><br />
+        <%= f.hidden_field :product_ids, value: @instagram_item.product_ids.join(',') %>
       <% end %>
     </div>
-    <div data-hook="admin_instagram_item_image_url_form">
-      <%= f.field_container :link do %>
-        <%= f.label :link, Spree.t(:link) %><br/>
-        <%= f.text_field :link, :value => @instagram_item.link, :required => true %>
-        <%= f.error_message_on :link %>
-      <% end %>
-    </div>
-    <div class='field' data-hook="admin_instagram_item_form_products">
-        <%= f.field_container :products do %>
-          <%= f.label :product_ids, Spree.t(:products) %><br />
-          <%= f.hidden_field :product_ids, :value => @instagram_item.product_ids.join(',') %>
-        <% end %>
-      </div>
-    <div data-hook="admin_instagram_item_published_form">
-      <%= f.field_container :published do %>
-        <%= f.check_box :published %>
-        <%= f.label Spree.t(:published) %>
-      <% end %>
-    </div>
-    <div data-hook="admin_instagram_item_outstanding_form">
-      <%= f.field_container :outstanding do %>
-        <%= f.check_box :outstanding %>
-        <%= f.label Spree.t(:outstanding) %>
-      <% end %>
-    </div>
-    <%= f.hidden_field :instagram_post_id, value: @instagram_item.instagram_post_id %>
+  <div data-hook="admin_instagram_item_published_form">
+    <%= f.field_container :published do %>
+      <%= f.check_box :published %>
+      <%= f.label Spree.t(:published) %>
+    <% end %>
   </div>
+  <div data-hook="admin_instagram_item_outstanding_form">
+    <%= f.field_container :outstanding do %>
+      <%= f.check_box :outstanding %>
+      <%= f.label Spree.t(:outstanding) %>
+    <% end %>
+  </div>
+  <%= f.hidden_field :instagram_post_id, value: @instagram_item.instagram_post_id %>
+  <%= f.hidden_field :image_url, value: @instagram_item.image_url %>
 </div>

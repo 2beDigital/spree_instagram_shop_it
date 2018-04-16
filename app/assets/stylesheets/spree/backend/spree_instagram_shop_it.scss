@@ -1,6 +1,9 @@
 #s2id_instagram_item_product_ids,
 #instagram_item_image_url,
-#instagram_item_link{
+#instagram_item_link,
+#instagram_item_description,
+#instagram_item_username,
+#instagram_item_likes{
 	width:100%
 }
 
@@ -42,5 +45,15 @@ li.instagram_posts:hover{
 		span.shadow{
 		   	background-color: rgba(3,3,3,0.5);
 		}
+	}
+}
+.resource_links{
+	clear:both;
+}
+
+div.instagram-item-image{
+	text-align:center;
+	img{
+		width:50%;
 	}
 }

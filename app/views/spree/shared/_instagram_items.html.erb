@@ -5,18 +5,22 @@
 		<li class='col-md-3 instagram_items' id="instagram_item_<%= instagram_item.id %>" >
 			<a class="instagram-items-links" data-fancybox="gallery" href="#instagram_product_<%= instagram_item.id %>">
 			    <div class="product-image">		    
-			      <img src="<%= instagram_item.image_url %>" alt="image_<%= instagram_item.id %>"/>
-			      <span class="shadow"><h3><%= Spree.t(:shop_it) %></h3></span>
+					<img src="<%= instagram_item.image_url %>" alt="image_<%= instagram_item.id %>"/>
+					<span class="shadow">
+						<i class="fa fa-instagram fa-3x"></i>
+						<h3><%= Spree.t(:shop_it) %></h3>
+						<span class='likes'><i class="fa fa-heart"></i> <%= instagram_item.instagram_post.likes %></span>
+					</span>
 			    </div>
 			</a>
 			<div id="instagram_product_<%= instagram_item.id %>" class='fancy_instagram_products'>	
 				<img src="<%= instagram_item.image_url %>" alt="image_<%= instagram_item.id %>" class='item_image' />
 				<ul class='instagram_products' >
 					<% instagram_item.products.each_with_index do |product, index| %>	    
-		      	<li class="instan_product">
-		      		<div>
-		      			<%= link_to small_image(product, :itemprop => "image"), spree.product_path(product), :itemprop => 'url' %>
-		      		</div>
+				      	<li class="instan_product">
+				      		<div>
+				      			<%= link_to small_image(product, :itemprop => "image"), spree.product_path(product), :itemprop => 'url' %>
+				      		</div>
 							<div>
 								<h6><%= product.name %></h6>
 								<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
@@ -27,6 +31,13 @@
 						</li>
 					<% end %>
 				</ul>
+				<div class="instagram_data">
+					<p><i>@<%= instagram_item.instagram_post.username %></i> <%= instagram_item.instagram_post.description %></p>
+					<p>
+						<i class="fa fa-heart"></i> <%= instagram_item.instagram_post.likes %>&nbsp;&nbsp;
+						<i class="fa fa-instagram fa-lg"></i>&nbsp;&nbsp;<%= link_to Spree.t(:show_in_instagram), instagram_item.instagram_post.link, target: '_blank' %>
+					</p>
+				</div>
 		  	</div>
 		</li>	
 	<% end %>

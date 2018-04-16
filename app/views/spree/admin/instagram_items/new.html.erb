@@ -15,7 +15,9 @@
 
 <div id="instagram_item_form_wrapper">
   <%= form_for [:admin, @instagram_item] do |f| %>
+  <fieldset class="no-border-top">
 		<%= render :partial => 'form', :locals => { :f => f } %>
 		<%= render :partial => 'spree/admin/shared/new_resource_links' %>
+  </fieldset>
 	<% end %>
 </div>

@@ -16,3 +16,13 @@ es:
     instagram_shop_it: Instagram Shop It
     shop_it: Cómpralo!!
     no_instagram_items_found: No se encontraron productos de instagram.
+    instagram_item_description: Descripcion del articulo
+    instagram_item_likes: Numero de 'likes' en instagram
+    instagram_item_username: Nombre del usuario
+    show_in_instagram: Ver en instagram
+  activerecord:
+    models:
+      spree/instagram_item:
+        other: No se encontraron productos de instagram.
+        one: No se encontraron producto de instagram.
+        zero: No se encontraron productos de instagram.

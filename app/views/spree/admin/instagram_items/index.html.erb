@@ -38,7 +38,7 @@
             </td>
             <td style='text-align:center'><%= raw(instagram_item.published ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>') %></td>
             <td style='text-align:center'><%= raw(instagram_item.outstanding ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>') %></td>
-            <td style='text-align:center'><%= link_to instagram_item.link, instagram_item.link %> </td>
+            <td style='text-align:center'><%= link_to instagram_item.instagram_post.link, instagram_item.instagram_post.link %> </td>
             <td class="actions" data-hook="admin_instagram_items_index_row_actions">
               <%= link_to_edit instagram_item, :no_text => true, :class => 'edit' if can?(:edit, instagram_item) %>
               &nbsp;
@@ -51,7 +51,7 @@
 <% else %>
   <div class="alpha twelve columns no-objects-found">
     <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/instagram_item')) %>,
-    <%= link_to Spree.t(:add_one), spree.new_admin_instagram_item_path %>!
+    <%= link_to Spree.t(:add_one), spree.admin_instagram_posts_path %>!
   </div>
 <% end %>
 

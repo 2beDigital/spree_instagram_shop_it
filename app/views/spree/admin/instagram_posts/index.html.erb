@@ -11,7 +11,7 @@
   
 <ul id='instagram_post_images'>
 	<% if @collection.present? %>
-		<%= render partial: 'spree/admin/shared/instagram_posts' %>
+		<%= render partial: 'spree/admin/shared/render_posts' %>
 	<% else %>
 		<div class="alpha twelve columns no-objects-found">
 	    <%= Spree.t(:make_instagram_posts_call) %>,

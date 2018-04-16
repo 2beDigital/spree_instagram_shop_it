@@ -1,20 +1,17 @@
-<%= paginate @collection, remote: true %>
 <% @collection.each do |post| %>
 	<li class='instagram_posts' id="post_<%= post.id %>" class="columns four alpha">
 	    <div class="product-image">
-	      <img src="<%= post.post_image_url %>" alt="image_<%= post.id %>"/>
+	      <img src="<%= post.image_url %>" alt="image_<%= post.id %>"/>
 	      	<% if post.instagram_item.present? %>
 	      		<%= link_to  Spree.t(:edit_instagram_product), spree.edit_admin_instagram_item_path(post.instagram_item), class: 'button' %>
 	     	<% else %>
 		      <%= button_to spree.new_admin_instagram_item_url do %>
 		      	<%= Spree.t(:create_new_instagram_product) %>
-						<%= hidden_field_tag :image_url, post.post_image_url %>
-						<%= hidden_field_tag :link, post.post_link %>
-						<%= hidden_field_tag :instagram_post_id, post.id %>
+					<%= hidden_field_tag :image_url, post.image_url %>
+					<%= hidden_field_tag :instagram_post_id, post.id %>
 		      <% end %>
 		    <% end %>
 	      <span class="shadow"></span>
 	    </div>
   </li>	
 <% end %>
-<%= paginate @collection, remote: true %>
