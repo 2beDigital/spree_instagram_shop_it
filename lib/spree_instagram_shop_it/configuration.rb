@@ -1,3 +1,4 @@
+require 'instagram_api'
 module SpreeInstagramShopIt
     class Configuration
         class RateError < StandardError; end
