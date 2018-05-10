@@ -52,6 +52,16 @@ module Spree
 		        end
 			end
 
+			def get_and_search_products
+		        if params[:ids]
+		          @products = Spree::Product.where(:id => params[:ids].split(","))
+		        else
+		          @products = Spree::Product.joins(:master).where('name LIKE ? OR sku LIKE ?',"#{params[:q][:name_cont]}%","#{params[:q][:sku_cont]}%")
+		        end
+		        @products = @products.distinct.page(params[:page]).per(params[:per_page])
+		        respond_with(@products)
+		    end
+
 			private
 
 			def instagram_item_params

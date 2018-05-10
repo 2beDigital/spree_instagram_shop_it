@@ -4,17 +4,18 @@ var set_products_select = function(){
   if ($('#instagram_item_product_ids').length > 0) {
     $('#instagram_item_product_ids').select2({
       placeholder: Spree.translations.products,
+      minimumInputLength: 3,
       multiple: true,
        initSelection: function (element, callback) {
-        $.get(Spree.routes.product_search, {
+        $.getJSON(Spree.pathFor('admin/get_and_search_products'), {
           ids: element.val().split(','),
-          token: Spree.api_key
+          token: Spree.api_key,
         }, function (data) {
           callback(data.products);
         });
       },
       ajax: {
-        url: Spree.routes.product_search,
+        url: Spree.pathFor('admin/get_and_search_products'),
         datatype: 'json',
         data: function (term, page) {
           return {
@@ -22,7 +23,6 @@ var set_products_select = function(){
               name_cont: term,
               sku_cont: term
             },
-            m: 'OR',
             token: Spree.api_key
           };
         },
@@ -34,10 +34,10 @@ var set_products_select = function(){
         }
       },
       formatResult: function (product) {
-        return product.name;
+        return product.name + ' ' + product.sku;
       },
       formatSelection: function (product) {
-        return product.name;
+        return product.name + ' ' + product.sku;
       }
     });
   }
