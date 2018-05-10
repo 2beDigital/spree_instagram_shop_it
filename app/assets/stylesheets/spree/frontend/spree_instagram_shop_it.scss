@@ -69,20 +69,19 @@ div.fancy_instagram_products{
 	max-width:80% !important;
 	div.instagram_images{
 	    text-align: center;
+	    padding: 0;
 	    img{
 	    	max-width:90%;
 	    }
 	}
 	ul.instagram_products{
 		list-style: none;
-	    padding-top: 30px;
+	    padding:0;
 		li.instan_product{
 			display: inline-block;
 		    text-align: center;
-		    margin-bottom: 20px;
-		    margin-top: 20px;
+		     width: 24%;
 		    a.btn.btn-primary{
-		    	width:95%;
 		    	font-size: 12px;
 		    }
 		    h6{
@@ -93,11 +92,13 @@ div.fancy_instagram_products{
 		    span.price.selling{
 		    	font-size:12px;
 		    }
+		    img{
+		    	width:100%;
+		    }
 		}
 
 	}
 	div.instagram_data{
-	    padding: 30px 15px;
 	    font-size:12px;
 	}
 }
@@ -106,4 +107,20 @@ div.fancybox-is-open div.fancy_instagram_products{
     display: inline-flex !important;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+	div.fancybox-is-open div.fancy_instagram_products{
+		display: inline-block !important;
+	}
+	div.fancy_instagram_products{	   
+		ul.instagram_products{
+			li.instan_product{
+			    width: 49%;
+			    a.btn.btn-primary {
+    				font-size: 10px;
+    			}
+			}
+		}
+	}
 }
